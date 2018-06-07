@@ -43,3 +43,24 @@
 #	{"4423232218340"}
 #	{"6290421476245"}
 #	Returns: 18
+def minimumMoves(x,y):
+	lx=[int(list(x)[p]) for p in range(0,len(list(x)))]
+	print('LX is : '+str(lx))
+	ly=[int(list(y)[q]) for q in range(0,len(list(y)))]
+	n=len(lx)
+	for step in range(1,10):
+		print('Step is '+str(step)+' currently ====================')
+		for window in range(1,n+1):
+			print('Window is '+str(window)+' now ------------------------------------')
+			for start_pt in range(0,n+1-window):
+				temp_x=lx[:]
+				print('Start_pt is '+str(start_pt)+' now.')
+				for k in range(start_pt,start_pt+window):
+					temp_x[k]=int(temp_x[k])+step
+				if temp_x == ly:
+					print('Lock combination is : Window - '+str(window)+', Start point - '+str(start_pt))
+					return step
+				else:
+					continue
+
+print(minimumMoves('123456','127856'))
