@@ -94,8 +94,18 @@ def getMedian(y):
 	med_pos=round((n+1)/2)
 	return x[med_pos-1]
 
-def sumOfMedians():
+def sumOfMedians(seed, mul, add, N, K):
+	temps=[]
+	temp_sets=[]
+	medians=[]
+	for i in range(0,N):
+		if len(temps) == 0:
+			temps.append(seed)
+		else:
+			temps.append((temps[i-1]*mul + add)%65536)
+	for j in range(0,N-K+1):
+		temp_sets.append(temps[j:j+K])
+		medians.append(getMedian(temp_sets[j]))
+	return sum(medians)
 	
-	
-	
-print(getMedian([20,24,34,21,43,65,40]))
+print(sumOfMedians(4123,2341,1231,7,3))
