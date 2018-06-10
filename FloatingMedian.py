@@ -108,4 +108,4 @@ def sumOfMedians(seed, mul, add, N, K):
 		medians.append(getMedian(temp_sets[j]))
 	return sum(medians)
 	
-print(sumOfMedians(4123,2341,1231,7,3))
+print(sumOfMedians(47,5621,1,125000,1700))
